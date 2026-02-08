@@ -152,12 +152,20 @@ function navigateTo(viewId) {
   // Show target
   document.getElementById(`view-${viewId}`).classList.add("active");
 
-  // Update Breadcrumb
-  const breadcrumb = document.getElementById("breadcrumb-text");
-  if (viewId === "inicio") breadcrumb.textContent = "Inicio";
-  else if (viewId === "nuevo-expediente") breadcrumb.textContent = "Inicio > Nuevo Expediente";
-  else if (viewId === "buscar-expediente") breadcrumb.textContent = "Inicio > Buscar Expediente";
-  else if (viewId === "recibo") breadcrumb.textContent = "Inicio > Recibo";
+  // Update Breadcrumb visibility
+  const breadcrumbNav = document.getElementById("main-breadcrumb");
+  if (viewId === "login") {
+    if (breadcrumbNav) breadcrumbNav.style.display = "none";
+  } else {
+    if (breadcrumbNav) breadcrumbNav.style.display = "block";
+  }
+
+  // Update Breadcrumb Text
+  const breadcrumbText = document.getElementById("breadcrumb-text");
+  if (viewId === "inicio") breadcrumbText.textContent = "Inicio";
+  else if (viewId === "nuevo-expediente") breadcrumbText.textContent = "Inicio > Nuevo Expediente";
+  else if (viewId === "buscar-expediente") breadcrumbText.textContent = "Inicio > Buscar Expediente";
+  else if (viewId === "recibo") breadcrumbText.textContent = "Inicio > Recibo";
 
   // Reset Forms if needed
   if (viewId === "nuevo-expediente") {
@@ -226,3 +234,9 @@ document.addEventListener("DOMContentLoaded", () => {
   StorageManager.borrarAfiliadosCache();
   UIManager.init();
 });
+
+// para mostrar password del password
+function togglePasswordVisibility() {
+  const input = document.getElementById("login-pass");
+  input.type = input.type === "password" ? "text" : "password";
+}

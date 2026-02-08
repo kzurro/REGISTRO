@@ -25,24 +25,23 @@
     <header class="main-header">
       <div class="logo-container">
         <div class="logo-box">
-          <!--<span class="logo-text">ISFAS</span>-->
           <a href="./"><img src="/assets/logo_isfas.png" style="max-width: 100%; height: auto" /></a>
         </div>
         <div class="divider"></div>
         <div class="logo-box">
-          <!-- <span class="logo-subtext">MINISTERIO<br />DE DEFENSA</span>-->
           <a href="./"><img src="./assets/logo_ministerio.png" style="max-width: 25%; height: auto" /></a>
         </div>
       </div>
       <img src="./assets/REGISTR@SINfONDO.png" style="align-content: center; height: 40px; width: auto" alt="Registra" />
-      <div class="user-info">
-        <span>Tramitador: Pelayo Español Español</span>
+      <!-- Datos de usuario: Ocultos inicialmente hasta el login -->
+      <div class="user-info" id="header-user-info" style="visibility: hidden">
+        <span id="header-username">Tramitador: Pelayo Español Español</span>
         <span class="delegation-badge">Registro ISFAS</span>
       </div>
     </header>
 
-    <!-- Breadcrumb -->
-    <nav class="breadcrumb">
+    <!-- Breadcrumb: Oculto en login -->
+    <nav class="breadcrumb" id="main-breadcrumb" style="display: none">
       <div class="container">
         <a href="./"><span id="breadcrumb-text">Inicio</span></a>
       </div>
@@ -50,8 +49,48 @@
 
     <!-- Main Container -->
     <main class="container">
+      <!-- VIEW 0: LOGIN (ACTIVA POR DEFECTO) -->
+      <section id="view-login" class="view active">
+        <div class="login-wrapper">
+          <div class="card login-card">
+            <div class="card-header" style="text-align: center">
+              <div style="font-size: 3rem; margin-bottom: 10px"><img src="./assets/REGISTR@SINfONDO.png" /></div>
+            </div>
+            <div class="card-body">
+              <div class="form-group mb-md">
+                <label for="login-user">Usuario DICODEF</label>
+                <input
+                  type="text"
+                  id="login-user"
+                  placeholder="Introduce tu usuario..."
+                  onkeyup="if (event.key === 'Enter') document.getElementById('login-pass').focus();"
+                />
+              </div>
+              <div class="form-group mb-md">
+                <label for="login-pass">Contraseña</label>
+                <!-- <input type="password" id="login-pass" placeholder="••••••••" onkeyup="if (event.key === 'Enter') LoginManager.login();" />-->
+                <div style="display: fles; align-items: center; width: 100%">
+                  <input
+                    type="password"
+                    id="login-pass"
+                    placeholder="   Password"
+                    onkeyup="if (event.key === 'Enter') LoginManager.login();"
+                    style="flex: 1; width: 90%"
+                  />
+                  <span onclick="togglePasswordVisibility()" style="cursor: pointer; margin-left: 8px; line-height: 1"> 👁️ </span>
+                </div>
+              </div>
+
+              <button class="btn btn-primary btn-lg" style="width: 100%; margin-top: 15px" onclick="LoginManager.login()">Entrar</button>
+
+              <p class="login-disclaimer">ℹ️ Puede meter los datos que quiera, no hay validación.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- VIEW 1: INICIO -->
-      <section id="view-inicio" class="view active">
+      <section id="view-inicio" class="view">
         <h1 class="page-title">Sistema de Registro</h1>
         <div class="card-grid">
           <div class="card card-action card-new" onclick="navigateTo('nuevo-expediente')">
@@ -330,8 +369,8 @@
                 <span class="value" id="pdf-oficina">Madrid Este</span>
               </div>
               <div class="recibo-row">
-                <span class="label">Funcionario:</span>
-                <span class="value">Ana García López</span>
+                <span class="label">Tramitador:</span>
+                <span class="value">Juan Español Español</span>
               </div>
             </div>
 
@@ -454,6 +493,8 @@
     <script src="js/pdf-generator.js"></script>
     <script src="js/expedientes.js"></script>
     <script src="js/consulta.js"></script>
+    <script src="js/login.js"></script>
+    <!-- Login Logic -->
     <script src="js/app.js"></script>
     <script type="module" src="/index.tsx"></script>
   </body>

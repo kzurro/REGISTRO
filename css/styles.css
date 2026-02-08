@@ -128,6 +128,36 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
+/* Login Styles */
+.login-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+    /* Para que quede centrado verticalmente */
+}
+
+.login-card {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+}
+
+.login-disclaimer {
+    margin-top: 20px;
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    text-align: center;
+    font-style: italic;
+    background-color: var(--color-bg-light);
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.mb-md {
+    margin-bottom: var(--spacing-md);
+}
+
 /* Typography */
 h1 { font-size: 2rem; font-weight: 500; margin-bottom: var(--spacing-lg); }
 h2 { font-size: 1.5rem; font-weight: 500; margin-bottom: var(--spacing-md); color: var(--color-primary); }
