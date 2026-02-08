@@ -163,8 +163,52 @@ const ConsultaManager = {
   },
 
   verDocumentoEnDetalle(doc) {
-    // Reutilizamos la lógica existente de visualizar
-    DocumentosManager.verDocumento(doc);
+    // Si viene serializado desde el HTML, lo parseamos
+    if (typeof doc === "string") {
+      try {
+        doc = JSON.parse(doc);
+      } catch (e) {
+        console.error("Documento inválido", e);
+        return;
+      }
+    }
+
+    // DOCUMENTOS REALES: los que se han subido y guardado en localStorage tienen base64Data
+    if (doc && doc.base64Data) {
+      DocumentosManager.verDocumento(doc);
+      return;
+    }
+
+    // DOCUMENTOS MOCK / SIN FICHERO: mostramos el documento de pruebas
+    const w = window.open("", "_blank");
+    if (w) {
+      w.document.write(`
+      <!doctype html>
+      <html lang="es">
+        <head>
+          <meta charset="utf-8" />
+          <title>Documento de pruebas</title>
+          <style>
+            body {
+              font-family: Arial, sans-serif;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              height: 100vh;
+              margin: 0;
+            }
+            h1 {
+              font-size: 1.5rem;
+            }
+          </style>
+        </head>
+        <body>
+          <h1>ESTO ES UN DOCUMENTO DE PRUEBAS</h1>
+        </body>
+      </html>
+    `);
+      w.document.close();
+    }
   },
   irAAgregarDocumentacion() {
     if (!this.expedienteActual) return;
