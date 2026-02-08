@@ -1,0 +1,36 @@
+{
+  "delegaciones": [
+    {
+      "codigo": "54",
+      "nombre": "Algeciras",
+      "provincia": "Cádiz",
+      "direccion": "Calle Ejemplo 123, 11201 Algeciras",
+      "telefono": "+34 956 123 456",
+      "email": "algeciras@isfas.es"
+    },
+    {
+      "codigo": "24",
+      "nombre": "León",
+      "provincia": "León",
+      "direccion": "Avenida Ejemplo 45, 24001 León",
+      "telefono": "+34 987 234 567",
+      "email": "leon@isfas.es"
+    },
+    {
+      "codigo": "69",
+      "nombre": "Madrid Este",
+      "provincia": "Madrid",
+      "direccion": "Paseo Ejemplo 78, 28001 Madrid",
+      "telefono": "+34 917 345 678",
+      "email": "madrideste@isfas.es"
+    },
+    {
+      "codigo": "75",
+      "nombre": "Especial Madrid",
+      "provincia": "Madrid",
+      "direccion": "Gran Vía Ejemplo 90, 28013 Madrid",
+      "telefono": "+34 918 456 789",
+      "email": "especialmadrid@isfas.es"
+    }
+  ]
+}

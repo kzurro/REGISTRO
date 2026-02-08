@@ -1,0 +1,28 @@
+{
+  "tiposDocumentos": [
+    {
+      "id": "solicitud",
+      "nombre": "Solicitud",
+      "descripcion": "Formulario de solicitud de prestación",
+      "obligatorio": true
+    },
+    {
+      "id": "informe",
+      "nombre": "Informe",
+      "descripcion": "Informe médico o técnico",
+      "obligatorio": false
+    },
+    {
+      "id": "factura",
+      "nombre": "Factura",
+      "descripcion": "Factura o presupuesto",
+      "obligatorio": false
+    },
+    {
+      "id": "otros",
+      "nombre": "Otros",
+      "descripcion": "Otros documentos complementarios",
+      "obligatorio": false
+    }
+  ]
+}

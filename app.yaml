@@ -1,0 +1,32 @@
+runtime: python313
+service: default
+
+# App Engine usa handlers para mapear URLs a archivos
+handlers:
+  # Servir el archivo index.html en la raíz
+  - url: /
+    static_files: index.html
+    upload: index.html
+
+  # Servir archivos CSS
+  - url: /css
+    static_dir: css
+
+  # Servir archivos JS
+  - url: /js
+    static_dir: js
+
+  # Servir datos JSON
+  - url: /data
+    static_dir: data
+    # Asegurar headers correctos para JSON si es necesario,
+    # aunque App Engine suele detectarlo automáticamente.
+
+  # Servir assets (imágenes, logos)
+  - url: /assets
+    static_dir: assets
+
+  # Cualquier otra ruta redirige a index.html (útil si agregas routing en el futuro)
+  - url: /.*
+    static_files: index.html
+    upload: index.html

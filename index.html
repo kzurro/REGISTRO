@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registro Electrónico ISFAS</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+
+    <!-- PDF Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <link rel="stylesheet" href="/index.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="main-header">
+      <div class="logo-container">
+        <div class="logo-box">
+          <!--<span class="logo-text">ISFAS</span>-->
+          <a href="./"><img src="/assets/logo_isfas.png" style="max-width: 100%; height: auto" /></a>
+        </div>
+        <div class="divider"></div>
+        <div class="logo-box">
+          <!-- <span class="logo-subtext">MINISTERIO<br />DE DEFENSA</span>-->
+          <a href="./"><img src="./assets/logo_ministerio.png" style="max-width: 25%; height: auto" /></a>
+        </div>
+      </div>
+      <img src="./assets/REGISTR@SINfONDO.png" style="align-content: center; height: 40px; width: auto" alt="Registra" />
+      <div class="user-info">
+        <span>Tramitador: Pelayo Español Español</span>
+        <span class="delegation-badge">Registro ISFAS</span>
+      </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb">
+      <div class="container">
+        <a href="./"><span id="breadcrumb-text">Inicio</span></a>
+      </div>
+    </nav>
+
+    <!-- Main Container -->
+    <main class="container">
+      <!-- VIEW 1: INICIO -->
+      <section id="view-inicio" class="view active">
+        <h1 class="page-title">Sistema de Registro</h1>
+        <div class="card-grid">
+          <div class="card card-action card-new" onclick="navigateTo('nuevo-expediente')">
+            <div class="icon">📝</div>
+            <h2>Registrar Nuevo Expediente</h2>
+            <p>Alta de solicitudes, prestaciones y documentación inicial.</p>
+          </div>
+          <div class="card card-action card-add" onclick="navigateTo('buscar-expediente')">
+            <div class="icon">📂</div>
+            <h2>Añadir Documentos</h2>
+            <p>Anexar documentación a expedientes ya registrados.</p>
+          </div>
+          <!-- NUEVA CARD: CONSULTAR -->
+          <div class="card card-action card-new" style="border-top-color: var(--color-warning)" onclick="ConsultaManager.iniciarConsulta()">
+            <div class="icon">🔍</div>
+            <h2>Consultar Expedientes</h2>
+            <p>Listado completo, estados y detalles de registros.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW 2: NUEVO EXPEDIENTE -->
+      <section id="view-nuevo-expediente" class="view">
+        <h2 class="section-title">Nuevo Registro de Entrada</h2>
+
+        <!-- Paso 1: Identificación -->
+        <div class="card form-section">
+          <div class="card-header">
+            <h3>1. Identificación del Afiliado</h3>
+          </div>
+          <div class="card-body">
+            <div class="form-row">
+              <div class="radio-group">
+                <label><input type="radio" name="tipoBusqueda" value="dni" checked /> DNI / NIE</label>
+                <label><input type="radio" name="tipoBusqueda" value="filiacion" /> Nº Afiliación</label>
+              </div>
+            </div>
+            <div class="search-row">
+              <input type="text" id="input-busqueda-afiliado" placeholder="Introduzca DNI (Ej: 12345678A)" />
+              <button class="btn btn-primary" onclick="buscarAfiliado()">🔍 Buscar</button>
+            </div>
+
+            <!-- Tarjeta de Afiliado Seleccionado (Oculta al inicio) -->
+            <div id="afiliado-seleccionado" class="info-card hidden">
+              <div class="info-header">
+                <span class="icon-check">✓</span>
+                <strong>Afiliado Identificado</strong>
+              </div>
+              <div class="info-content" id="datos-afiliado-resumen">
+                <!-- JS fills this -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Paso 2: Documentación -->
+        <div class="card form-section disabled" id="section-documentos">
+          <div class="card-header">
+            <h3>2. Documentación del Expediente</h3>
+          </div>
+          <div class="card-body">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Tipo de Documentacion</label>
+                <select id="select-prestacion">
+                  <option value="Ortodoncia">Ortodoncia</option>
+                  <option value="Prótesis dental">Prótesis dental</option>
+                  <option value="Oftalmología">Oftalmología</option>
+                  <option value="Fisioterapia">Fisioterapia</option>
+                  <option value="Farmacia">Farmacia</option>
+                </select>
+              </div>
+            </div>
+
+            <button class="btn btn-outline" onclick="DocumentosManager.seleccionarArchivo()">📄 Escanear / Subir Documento</button>
+
+            <div class="docs-list" id="lista-documentos-nuevos">
+              <!-- Lista dinámica -->
+              <p class="empty-state">No hay documentos adjuntos</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Paso 3: Preferencias -->
+        <div class="card form-section disabled" id="section-preferencias">
+          <div class="card-header">
+            <h3>3. Comunicación</h3>
+          </div>
+          <div class="card-body">
+            <label class="checkbox-container">
+              <input type="checkbox" id="check-comunicacion-digital" />
+              El afiliado desea recibir comunicaciones y notificaciones en formato digital para este expediente.
+            </label>
+            <p class="text-small">Esta preferencia aplica únicamente a este procedimiento administrativo.</p>
+          </div>
+        </div>
+
+        <div class="actions-footer">
+          <button class="btn btn-ghost" onclick="navigateTo('inicio')">Cancelar</button>
+          <button class="btn btn-success btn-lg disabled" id="btn-registrar" onclick="registrarExpediente()">✓ REGISTRAR EXPEDIENTE Y GENERAR RECIBO</button>
+        </div>
+      </section>
+
+      <!-- VIEW 3: BUSCAR EXPEDIENTE (Añadir docs) -->
+      <section id="view-buscar-expediente" class="view">
+        <h2 class="section-title">Añadir Documentos a Expediente</h2>
+
+        <div class="card">
+          <div class="tabs">
+            <button class="tab active" onclick="cambiarTabBusqueda('dni')">DNI Afiliado</button>
+            <button class="tab" onclick="cambiarTabBusqueda('filiacion')">Nº Filiación</button>
+            <button class="tab" onclick="cambiarTabBusqueda('registro')">Nº Registro</button>
+          </div>
+          <div class="card-body">
+            <div class="search-row">
+              <input type="text" id="input-busqueda-expediente" placeholder="Buscar..." />
+              <button class="btn btn-primary" onclick="buscarExpedientes()">🔍 Buscar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="table-container mt-md">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Nº Registro</th>
+                <th>Fecha</th>
+                <th>Prestación</th>
+                <th>Estado</th>
+                <th>Acción</th>
+              </tr>
+            </thead>
+            <tbody id="tabla-resultados-expedientes">
+              <!-- JS fills this -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Detalle Expediente para añadir docs -->
+        <div id="detalle-expediente-existente" class="hidden mt-lg">
+          <h3 class="section-subtitle">Detalle del Expediente</h3>
+          <div class="card">
+            <div class="card-body" id="info-expediente-existente">
+              <!-- Info -->
+            </div>
+            <div class="card-body border-top">
+              <h4>Añadir Documentación Adicional</h4>
+              <button class="btn btn-outline" onclick="DocumentosManager.seleccionarArchivo()">📄 Escanear Documento</button>
+              <div class="docs-list" id="lista-docs-adicionales"></div>
+              <div class="mt-md">
+                <button class="btn btn-primary" onclick="guardarDocsAdicionales()">💾 Guardar Cambios</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- NUEVA VISTA: CONSULTAR EXPEDIENTES (GLOBAL) -->
+      <section id="view-consultar-global" class="view">
+        <h2 class="section-title">Consulta General de Expedientes</h2>
+
+        <div class="card">
+          <div class="card-body">
+            <div class="search-row">
+              <input type="text" id="input-filtro-global" placeholder="Filtrar por DNI, Nº Registro o Apellidos..." onkeyup="ConsultaManager.filtrarTabla()" />
+              <div style="min-width: 150px">
+                <select id="select-filtro-estado" onchange="ConsultaManager.filtrarTabla()">
+                  <option value="">Todos los Estados</option>
+                  <option value="Tramitación">Tramitación</option>
+                  <option value="Resuelto">Resuelto</option>
+                  <option value="Pendiente">Pendiente</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="table-container mt-md card">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Nº Registro</th>
+                <th>Fecha</th>
+                <th>Afiliado</th>
+                <th>Prestación</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="tabla-consulta-global">
+              <!-- Llenado por consulta.js -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- NUEVA VISTA: DETALLE DE LECTURA -->
+      <section id="view-detalle-lectura" class="view">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px">
+          <h2 class="section-title" style="margin-bottom: 0">Detalle del Expediente</h2>
+          <button class="btn btn-secondary" onclick="ConsultaManager.volverAListado()">← Volver al Listado</button>
+        </div>
+
+        <div class="card-grid">
+          <!-- Columna Izquierda: Datos Principales -->
+          <div>
+            <div class="card">
+              <div class="card-header">
+                <h3>Datos del Registro</h3>
+              </div>
+              <div class="card-body" id="detalle-datos-registro">
+                <!-- JS Inject -->
+              </div>
+            </div>
+
+            <div class="card mt-md">
+              <div class="card-header">
+                <h3>Datos del Afiliado</h3>
+              </div>
+              <div class="card-body" id="detalle-datos-afiliado">
+                <!-- JS Inject -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Columna Derecha: Documentos y Estado -->
+          <div>
+            <div class="card">
+              <div class="card-header">
+                <h3>Estado y Comunicación</h3>
+              </div>
+              <div class="card-body" id="detalle-estado">
+                <!-- JS Inject -->
+              </div>
+            </div>
+
+            <div class="card mt-md">
+              <div class="card-header">
+                <h3>Documentos Adjuntos</h3>
+              </div>
+              <div class="card-body">
+                <div class="docs-list" id="detalle-lista-docs">
+                  <!-- JS Inject -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW 4: RECIBO (Visualización) -->
+      <section id="view-recibo" class="view">
+        <h2 class="section-title">Recibo Generado</h2>
+        <div class="pdf-preview-container">
+          <!-- Este ID es el que captura html2pdf -->
+          <div id="recibo-preview" class="recibo-paper">
+            <!-- Header Recibo -->
+            <div class="recibo-header">
+              <div class="recibo-logo-left"><strong>ISFAS</strong><br />MINISTERIO DE DEFENSA</div>
+              <div class="recibo-title">RECIBO DE ENTRADA</div>
+              <div class="recibo-logo-right">[MIN]</div>
+            </div>
+
+            <!-- Datos Registro -->
+            <div class="recibo-box">
+              <div class="recibo-row">
+                <span class="label">Nº Registro:</span>
+                <span class="value" id="pdf-num-registro">RE-003-E-26-00000234</span>
+              </div>
+              <div class="recibo-row">
+                <span class="label">Fecha:</span>
+                <span class="value" id="pdf-fecha">15/01/2026 10:23</span>
+              </div>
+              <div class="recibo-row">
+                <span class="label">Oficina:</span>
+                <span class="value" id="pdf-oficina">Madrid Este</span>
+              </div>
+              <div class="recibo-row">
+                <span class="label">Funcionario:</span>
+                <span class="value">Ana García López</span>
+              </div>
+            </div>
+
+            <!-- Datos Titular -->
+            <div class="recibo-section-title">DATOS DEL TITULAR</div>
+            <div class="recibo-box">
+              <div class="recibo-row"><span class="label">Nombre:</span> <span class="value" id="pdf-nombre">Juan Carlos...</span></div>
+              <div class="recibo-row"><span class="label">DNI/NIE:</span> <span class="value" id="pdf-dni">12345678A</span></div>
+              <div class="recibo-row"><span class="label">Nº Afiliación:</span> <span class="value" id="pdf-afiliacion">28/7...</span></div>
+              <div class="recibo-row"><span class="label">Email:</span> <span class="value" id="pdf-email">email@isfas.es</span></div>
+              <div class="recibo-row"><span class="label">Comunicaciones:</span> <span class="value" id="pdf-comunicacion">DIGITAL</span></div>
+            </div>
+
+            <!-- Documentación -->
+            <div class="recibo-section-title">DOCUMENTACIÓN APORTADA</div>
+            <div class="recibo-box">
+              <table class="recibo-table">
+                <thead>
+                  <tr>
+                    <th>Tipo de Documento</th>
+                    <th>Nombre Archivo</th>
+                  </tr>
+                </thead>
+                <tbody id="pdf-tabla-docs">
+                  <!-- Filas -->
+                </tbody>
+              </table>
+              <div class="recibo-total">Total documentos: <span id="pdf-total-docs">0</span></div>
+            </div>
+
+            <!-- Footer / Sello -->
+            <div class="recibo-footer-box">
+              <div class="recibo-certificacion">
+                <strong>CERTIFICACIÓN</strong><br />
+                El presente recibo acredita la presentación de la documentación indicada en el Registro Electrónico del ISFAS, conforme a lo establecido en la
+                Ley 39/2015.
+              </div>
+              <div class="recibo-verificacion">
+                Código de Verificación:<br />
+                <strong id="pdf-csv">A7F9-3D2E-8B1C-4F6A-9E0D</strong>
+              </div>
+              <div class="recibo-sello">🔒<br />SELLO ELECTRÓNICO<br />ISFAS</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pdf-actions">
+          <button class="btn btn-primary" onclick="window.currentRecibo && enviarPorEmail_Mailto(window.currentRecibo)">📧 Email Directo</button>
+          <button class="btn btn-primary" onclick="window.currentRecibo && enviarPorEmail_NOTIFICA(window.currentRecibo)">🔔 Enviar vía NOTIFICA</button>
+          <button class="btn btn-secondary" onclick="window.currentRecibo && mostrarInfoNOTIFICA(window.currentRecibo)">ℹ️ Info NOTIFICA</button>
+          <button class="btn btn-primary" onclick="window.currentRecibo && PDFGenerator.generarReciboPDF(window.currentRecibo)">🖨️ Descargar PDF</button>
+          <button class="btn btn-success" onclick="goToInicio()">✓ Finalizar y Cerrar</button>
+        </div>
+      </section>
+    </main>
+
+    <!-- MODAL CONFIRMACIÓN AFILIADO -->
+    <div id="modal-afiliado" class="modal-overlay hidden">
+      <div class="modal">
+        <div class="modal-header">
+          <h3>Confirmar Afiliado</h3>
+        </div>
+        <div class="modal-body" id="modal-afiliado-content">
+          <!-- Datos completos -->
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-ghost" onclick="UIManager.cerrarModal('modal-afiliado')">Cancelar</button>
+          <button class="btn btn-primary" onclick="confirmarAfiliado()">Confirmar y Continuar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL CLASIFICACIÓN DOCUMENTO -->
+    <div id="modal-clasificacion" class="modal-overlay hidden">
+      <div class="modal">
+        <div class="modal-header">
+          <h3>Clasificar Documento</h3>
+        </div>
+        <div class="modal-body">
+          <p>Archivo: <strong id="nombre-archivo-temp"></strong></p>
+          <div class="form-group">
+            <label>Tipo de Documento</label>
+            <select id="select-tipo-doc-modal">
+              <!-- Filled by JS -->
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Nombre Personalizado (Opcional)</label>
+            <input type="text" id="input-nombre-doc-modal" />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-ghost" onclick="UIManager.cerrarModal('modal-clasificacion')">Cancelar</button>
+          <button class="btn btn-primary" onclick="guardarClasificacionDocumento()">Guardar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL GENÉRICO -->
+    <div id="modal-generico" class="modal-overlay hidden">
+      <div class="modal">
+        <div class="modal-header">
+          <h3 id="modal-generico-titulo">Título</h3>
+        </div>
+        <div class="modal-body" id="modal-generico-content">Contenido</div>
+        <div class="modal-footer">
+          <button class="btn btn-primary" onclick="UIManager.cerrarModal('modal-generico')">Cerrar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- NOTIFICACIÓN TOAST -->
+    <div id="notification-toast" class="toast hidden">Mensaje</div>
+
+    <!-- Scripts Order Matters -->
+    <script src="js/storage.js"></script>
+    <script src="js/validaciones.js"></script>
+    <script src="js/afiliados.js"></script>
+    <script src="js/documentos.js"></script>
+    <script src="js/pdf-generator.js"></script>
+    <script src="js/expedientes.js"></script>
+    <script src="js/consulta.js"></script>
+    <script src="js/app.js"></script>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>

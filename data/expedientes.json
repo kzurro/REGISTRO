@@ -1,0 +1,401 @@
+{
+  "expedientes": [
+    {
+      "id": "exp001",
+      "numeroExpediente": "03ORTOD126000234",
+      "numeroRegistro": "RE-003-E-26-00000234",
+      "fechaRegistro": "2026-01-15T10:23:00",
+      "fechaRegistroFormato": "15/01/2026 10:23",
+      "afiliadoId": "af001",
+      "tipoPrestacion": "Ortodoncia",
+      "estado": "Tramitación",
+      "delegacion": "Madrid Este",
+      "codigoDelegacion": "69",
+      "comunicacionDigital": true,
+      "documentos": [
+        {
+          "nombre": "Solicitud_Ortodoncia.pdf",
+          "tipo": "Solicitud",
+          "fechaSubida": "2026-01-15T10:23:00",
+          "tamano": "245 KB",
+          "base64Data": ""
+        },
+        {
+          "nombre": "Presupuesto_Clinica.pdf",
+          "tipo": "Factura",
+          "fechaSubida": "2026-01-15T10:25:00",
+          "tamano": "189 KB",
+          "base64Data": ""
+        }
+      ]
+    },
+    {
+      "id": "exp002",
+      "numeroExpediente": "02PROTDE26000101",
+      "numeroRegistro": "RE-002-E-26-00000101",
+      "fechaRegistro": "2026-01-16T09:15:00",
+      "fechaRegistroFormato": "16/01/2026 09:15",
+      "afiliadoId": "af002",
+      "tipoPrestacion": "Prótesis dental",
+      "estado": "Resuelto",
+      "delegacion": "León",
+      "codigoDelegacion": "24",
+      "comunicacionDigital": false,
+      "documentos": [
+        {
+          "nombre": "Factura.pdf",
+          "tipo": "Factura",
+          "tamano": "500 KB",
+          "base64Data": ""
+        }
+      ]
+    },
+    {
+      "id": "exp003",
+      "numeroExpediente": "01OFTALM26000055",
+      "numeroRegistro": "RE-01-E-26-00000055",
+      "fechaRegistro": "2026-01-10T11:00:00",
+      "fechaRegistroFormato": "10/01/2026 11:00",
+      "afiliadoId": "af003",
+      "tipoPrestacion": "Oftalmología",
+      "estado": "Pendiente",
+      "delegacion": "Algeciras",
+      "codigoDelegacion": "54",
+      "comunicacionDigital": true,
+      "documentos": []
+    },
+    {
+      "id": "exp004",
+      "numeroExpediente": "04FISIOP26000088",
+      "numeroRegistro": "RE-04-E-26-00000088",
+      "fechaRegistro": "2026-01-20T12:30:00",
+      "fechaRegistroFormato": "20/01/2026 12:30",
+      "afiliadoId": "af004",
+      "tipoPrestacion": "Fisioterapia",
+      "estado": "Tramitación",
+      "delegacion": "Especial Madrid",
+      "codigoDelegacion": "75",
+      "comunicacionDigital": true,
+      "documentos": []
+    },
+    {
+      "id": "exp005",
+      "numeroExpediente": "03FARMAC26000300",
+      "numeroRegistro": "RE-003-E-26-00000300",
+      "fechaRegistro": "2026-01-25T14:45:00",
+      "fechaRegistroFormato": "25/01/2026 14:45",
+      "afiliadoId": "af005",
+      "tipoPrestacion": "Farmacia",
+      "estado": "Resuelto",
+      "delegacion": "Madrid Este",
+      "codigoDelegacion": "69",
+      "comunicacionDigital": false,
+      "documentos": []
+    },
+    {
+      "id": "exp006",
+      "numeroExpediente": "02ORTOD126000150",
+      "numeroRegistro": "RE-002-E-26-00000150",
+      "fechaRegistro": "2026-02-01T08:30:00",
+      "fechaRegistroFormato": "01/02/2026 08:30",
+      "afiliadoId": "af006",
+      "tipoPrestacion": "Ortodoncia",
+      "estado": "Tramitación",
+      "delegacion": "León",
+      "codigoDelegacion": "24",
+      "comunicacionDigital": true,
+      "documentos": []
+    },
+    {
+      "id": "exp007",
+      "numeroExpediente": "01PROTDE26000010",
+      "numeroRegistro": "RE-001-E-26-00000010",
+      "fechaRegistro": "2026-02-02T09:00:00",
+      "fechaRegistroFormato": "02/02/2026 09:00",
+      "afiliadoId": "af007",
+      "tipoPrestacion": "Prótesis dental",
+      "estado": "Pendiente",
+      "delegacion": "Algeciras",
+      "codigoDelegacion": "54",
+      "comunicacionDigital": false,
+      "documentos": []
+    },
+    {
+      "id": "exp008",
+      "numeroExpediente": "04OFTALM26000099",
+      "numeroRegistro": "RE-004-E-26-00000099",
+      "fechaRegistro": "2026-02-03T10:15:00",
+      "fechaRegistroFormato": "03/02/2026 10:15",
+      "afiliadoId": "af008",
+      "tipoPrestacion": "Oftalmología",
+      "estado": "Resuelto",
+      "delegacion": "Especial Madrid",
+      "codigoDelegacion": "75",
+      "comunicacionDigital": true,
+      "documentos": []
+    },
+    {
+      "id": "exp009",
+      "numeroExpediente": "03FISIOP26000450",
+      "numeroRegistro": "RE-003-E-26-00000450",
+      "fechaRegistro": "2026-02-04T11:45:00",
+      "fechaRegistroFormato": "04/02/2026 11:45",
+      "afiliadoId": "af009",
+      "tipoPrestacion": "Fisioterapia",
+      "estado": "Tramitación",
+      "delegacion": "Madrid Este",
+      "codigoDelegacion": "69",
+      "comunicacionDigital": true,
+      "documentos": []
+    },
+    {
+      "id": "exp010",
+      "numeroExpediente": "04FARMAC26000200",
+      "numeroRegistro": "RE-004-E-26-00000200",
+      "fechaRegistro": "2026-02-05T13:30:00",
+      "fechaRegistroFormato": "05/02/2026 13:30",
+      "afiliadoId": "af010",
+      "tipoPrestacion": "Farmacia",
+      "estado": "Pendiente",
+      "delegacion": "Especial Madrid",
+      "codigoDelegacion": "75",
+      "comunicacionDigital": false,
+      "documentos": []
+    },
+    {
+      "id": "exp011",
+      "numeroExpediente": "01OFTALM26000120",
+      "numeroRegistro": "RE-001-E-26-00000120",
+      "fechaRegistro": "2026-02-06T09:15:00",
+      "fechaRegistroFormato": "06/02/2026 09:15",
+      "afiliadoId": "af014",
+      "tipoPrestacion": "Oftalmología",
+      "estado": "Tramitación",
+      "delegacion": "Madrid Este",
+      "codigoDelegacion": "69",
+      "comunicacionDigital": true,
+      "documentos": [
+        {
+          "nombre": "Informe_Oftalmologia.pdf",
+          "tipo": "Informe médico",
+          "fechaSubida": "2026-02-06T09:15:00",
+          "tamano": "320 KB",
+          "base64Data": ""
+        }
+      ]
+    },
+    {
+      "id": "exp012",
+      "numeroExpediente": "02FISIOP26000210",
+      "numeroRegistro": "RE-002-E-26-00000210",
+      "fechaRegistro": "2026-02-06T10:30:00",
+      "fechaRegistroFormato": "06/02/2026 10:30",
+      "afiliadoId": "af021",
+      "tipoPrestacion": "Fisioterapia",
+      "estado": "Pendiente",
+      "delegacion": "León",
+      "codigoDelegacion": "24",
+      "comunicacionDigital": false,
+      "documentos": [
+        {
+          "nombre": "Solicitud_Fisioterapia.pdf",
+          "tipo": "Solicitud",
+          "fechaSubida": "2026-02-06T10:30:00",
+          "tamano": "210 KB",
+          "base64Data": ""
+        }
+      ]
+    },
+    {
+      "id": "exp013",
+      "numeroExpediente": "03FARMAC26000510",
+      "numeroRegistro": "RE-003-E-26-00000510",
+      "fechaRegistro": "2026-02-06T11:45:00",
+      "fechaRegistroFormato": "06/02/2026 11:45",
+      "afiliadoId": "af003",
+      "tipoPrestacion": "Farmacia",
+      "estado": "Resuelto",
+      "delegacion": "Algeciras",
+      "codigoDelegacion": "54",
+      "comunicacionDigital": true,
+      "documentos": [
+        {
+          "nombre": "Receta_Electronica.pdf",
+          "tipo": "Receta",
+          "fechaSubida": "2026-02-06T11:45:00",
+          "tamano": "95 KB",
+          "base64Data": ""
+        },
+        {
+          "nombre": "Factura_Farmacia.pdf",
+          "tipo": "Factura",
+          "fechaSubida": "2026-02-06T11:50:00",
+          "tamano": "180 KB",
+          "base64Data": ""
+        }
+      ]
+    },
+    {
+      "id": "exp014",
+      "numeroExpediente": "04ORTOD126000260",
+      "numeroRegistro": "RE-004-E-26-00000260",
+      "fechaRegistro": "2026-02-06T12:10:00",
+      "fechaRegistroFormato": "06/02/2026 12:10",
+      "afiliadoId": "af018",
+      "tipoPrestacion": "Ortodoncia",
+      "estado": "Tramitación",
+      "delegacion": "Especial Madrid",
+      "codigoDelegacion": "75",
+      "comunicacionDigital": true,
+      "documentos": [
+        {
+          "nombre": "Solicitud_Ortodoncia_Menor.pdf",
+          "tipo": "Solicitud",
+          "fechaSubida": "2026-02-06T12:10:00",
+          "tamano": "260 KB",
+          "base64Data": ""
+        },
+        {
+          "nombre": "Presupuesto_Clinica_Dental.pdf",
+          "tipo": "Presupuesto",
+          "fechaSubida": "2026-02-06T12:12:00",
+          "tamano": "200 KB",
+          "base64Data": ""
+        }
+      ]
+    },
+    {
+      "id": "exp015",
+      "numeroExpediente": "01PROTDE26000075",
+      "numeroRegistro": "RE-001-E-26-00000075",
+      "fechaRegistro": "2026-02-06T13:20:00",
+      "fechaRegistroFormato": "06/02/2026 13:20",
+      "afiliadoId": "af027",
+      "tipoPrestacion": "Prótesis dental",
+      "estado": "Pendiente",
+      "delegacion": "Madrid Este",
+      "codigoDelegacion": "69",
+      "comunicacionDigital": false,
+      "documentos": [
+        {
+          "nombre": "Informe_Odontologico.pdf",
+          "tipo": "Informe médico",
+          "fechaSubida": "2026-02-06T13:20:00",
+          "tamano": "305 KB",
+          "base64Data": ""
+        }
+      ]
+    },
+    {
+      "id": "exp016",
+      "numeroExpediente": "02OFTALM26000180",
+      "numeroRegistro": "RE-002-E-26-00000180",
+      "fechaRegistro": "2026-02-06T15:05:00",
+      "fechaRegistroFormato": "06/02/2026 15:05",
+      "afiliadoId": "af009",
+      "tipoPrestacion": "Oftalmología",
+      "estado": "Resuelto",
+      "delegacion": "León",
+      "codigoDelegacion": "24",
+      "comunicacionDigital": true,
+      "documentos": [
+        {
+          "nombre": "Informe_Revision_Visual.pdf",
+          "tipo": "Informe médico",
+          "fechaSubida": "2026-02-06T15:05:00",
+          "tamano": "150 KB",
+          "base64Data": ""
+        }
+      ]
+    },
+    {
+      "id": "exp017",
+      "numeroExpediente": "03FISIOP26000320",
+      "numeroRegistro": "RE-003-E-26-00000320",
+      "fechaRegistro": "2026-02-06T16:40:00",
+      "fechaRegistroFormato": "06/02/2026 16:40",
+      "afiliadoId": "af012",
+      "tipoPrestacion": "Fisioterapia",
+      "estado": "Tramitación",
+      "delegacion": "Algeciras",
+      "codigoDelegacion": "54",
+      "comunicacionDigital": true,
+      "documentos": [
+        {
+          "nombre": "Prescripcion_Sesiones_Fisioterapia.pdf",
+          "tipo": "Prescripción",
+          "fechaSubida": "2026-02-06T16:40:00",
+          "tamano": "175 KB",
+          "base64Data": ""
+        }
+      ]
+    },
+    {
+      "id": "exp018",
+      "numeroExpediente": "04FARMAC26000600",
+      "numeroRegistro": "RE-004-E-26-00000600",
+      "fechaRegistro": "2026-02-06T17:25:00",
+      "fechaRegistroFormato": "06/02/2026 17:25",
+      "afiliadoId": "af025",
+      "tipoPrestacion": "Farmacia",
+      "estado": "Pendiente",
+      "delegacion": "Especial Madrid",
+      "codigoDelegacion": "75",
+      "comunicacionDigital": false,
+      "documentos": [
+        {
+          "nombre": "Factura_Medicacion_Cronica.pdf",
+          "tipo": "Factura",
+          "fechaSubida": "2026-02-06T17:25:00",
+          "tamano": "220 KB",
+          "base64Data": ""
+        }
+      ]
+    },
+    {
+      "id": "exp019",
+      "numeroExpediente": "01ORTOD126000310",
+      "numeroRegistro": "RE-001-E-26-00000310",
+      "fechaRegistro": "2026-02-06T18:10:00",
+      "fechaRegistroFormato": "06/02/2026 18:10",
+      "afiliadoId": "af004",
+      "tipoPrestacion": "Ortodoncia",
+      "estado": "Resuelto",
+      "delegacion": "Madrid Este",
+      "codigoDelegacion": "69",
+      "comunicacionDigital": true,
+      "documentos": [
+        {
+          "nombre": "Resolucion_Ortodoncia.pdf",
+          "tipo": "Resolución",
+          "fechaSubida": "2026-02-06T18:10:00",
+          "tamano": "260 KB",
+          "base64Data": ""
+        }
+      ]
+    },
+    {
+      "id": "exp020",
+      "numeroExpediente": "02PROTDE26000190",
+      "numeroRegistro": "RE-002-E-26-00000190",
+      "fechaRegistro": "2026-02-06T19:00:00",
+      "fechaRegistroFormato": "06/02/2026 19:00",
+      "afiliadoId": "af020",
+      "tipoPrestacion": "Prótesis dental",
+      "estado": "Tramitación",
+      "delegacion": "Algeciras",
+      "codigoDelegacion": "54",
+      "comunicacionDigital": false,
+      "documentos": [
+        {
+          "nombre": "Solicitud_Protesis_Dental.pdf",
+          "tipo": "Solicitud",
+          "fechaSubida": "2026-02-06T19:00:00",
+          "tamano": "240 KB",
+          "base64Data": "",
+          "observaciones": "Sustitución de varias piezas dentales"
+        }
+      ]
+    }
+  ]
+}

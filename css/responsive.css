@@ -1,0 +1,76 @@
+/* Mobile (< 768px) */
+@media (max-width: 767px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .main-header {
+    padding: var(--spacing-sm) var(--spacing-md);
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .user-info {
+    margin-top: 10px;
+    text-align: left;
+  }
+  
+  .logo-text { font-size: 1.2rem; }
+  
+  .actions-footer {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .actions-footer button { width: 100%; }
+  
+  .search-row { flex-direction: column; }
+  .search-row button { width: 100%; }
+
+  .recibo-paper {
+      width: 100%;
+      height: auto;
+      min-height: auto;
+      padding: 10px;
+  }
+}
+
+/* Ajuste para barra flotante en móvil */
+.pdf-actions {
+  padding: 10px;
+  gap: 8px;
+}
+
+.pdf-actions button {
+  flex: 1 1 45%;
+  /* Grid de 2 columnas */
+  font-size: 0.8rem;
+  padding: 10px 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* El último botón (Cerrar) ocupa todo el ancho si es impar */
+.pdf-actions button:last-child {
+  flex: 1 1 100%;
+}
+
+/* Añadir más padding abajo en el contenedor para asegurar que se ve todo el recibo */
+.pdf-preview-container {
+  padding-bottom: 200px;
+}
+
+
+/* Tablet (768px - 1024px) */
+@media (min-width: 768px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop (> 1024px) */
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1200px;
+  }
+}

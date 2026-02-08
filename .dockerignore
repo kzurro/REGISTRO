@@ -1,0 +1,8 @@
+.git
+.gitignore
+.dockerignore
+Dockerfile
+app.yaml
+README.md
+node_modules
+.DS_Store
