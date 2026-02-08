@@ -186,10 +186,9 @@ function navigateTo(viewId) {
 }
 
 function navigateBackFromBreadcrumb() {
-  // Sacar la última vista visitada que no sea 'inicio'
   while (navigationStack.length > 0) {
     const prev = navigationStack.pop();
-    if (prev && prev !== "inicio") {
+    if (prev && prev !== "login") {
       navigateTo(prev);
       return;
     }

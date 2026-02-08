@@ -36,7 +36,15 @@
       <!-- Datos de usuario: Ocultos inicialmente hasta el login -->
       <div class="user-info" id="header-user-info" style="visibility: hidden">
         <span id="header-username">Tramitador: Pelayo Español Español</span>
-        <span class="delegation-badge">Registro ISFAS</span>
+        <!--<span class="delegation-badge">Registro ISFAS</span>-->
+        <button
+          type="button"
+          onclick="navigateTo('login')"
+          style="margin-top: 4px; background: none; border: none; color: var(--color-warning); cursor: pointer; display: flex; align-items: center; gap: 4px"
+        >
+          <span>🚪</span>
+          <span>Cerrar sesión</span>
+        </button>
       </div>
     </header>
 
