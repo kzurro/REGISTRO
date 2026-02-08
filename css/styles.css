@@ -107,6 +107,16 @@ body {
     font-size: 0.875rem;
 }
 
+.breadcrumb-link {
+    cursor: pointer;
+    color: var(--color-text-secondary);
+}
+
+.breadcrumb-link:hover {
+    text-decoration: underline;
+    color: var(--color-primary);
+}
+
 /* Layout */
 .container {
     max-width: 1200px;

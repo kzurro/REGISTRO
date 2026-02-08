@@ -145,8 +145,20 @@ const UIManager = {
   },
 };
 
+// Pila de navegación (historial simple)
+let navigationStack = [];
+
+// viewId actual, opcionalmente
+let currentView = "inicio";
+
 // Global Navigation
 function navigateTo(viewId) {
+  // Guardar la vista actual en la pila, salvo si vamos al login
+  if (currentView && currentView !== viewId && currentView !== "login") {
+    navigationStack.push(currentView);
+  }
+  currentView = viewId;
+
   // Hide all
   document.querySelectorAll(".view").forEach((el) => el.classList.remove("active"));
   // Show target
@@ -170,6 +182,17 @@ function navigateTo(viewId) {
   // Reset Forms if needed
   if (viewId === "nuevo-expediente") {
     // Reset logic could go here
+  }
+}
+
+function navigateBackFromBreadcrumb() {
+  // Sacar la última vista visitada que no sea 'inicio'
+  while (navigationStack.length > 0) {
+    const prev = navigationStack.pop();
+    if (prev && prev !== "inicio") {
+      navigateTo(prev);
+      return;
+    }
   }
 }
 
