@@ -61,6 +61,8 @@ body {
     justify-content: space-between;
     align-items: center;
     box-shadow: var(--shadow-md);
+    /* Si quieres que se ajusten automáticamente al alto del header,
+       puedes usar un poco menos que el padding vertical: */
 }
 
 .logo-container {
@@ -68,6 +70,16 @@ body {
     align-items: center;
     gap: var(--spacing-md);
 }
+
+.logo-box img.logo-img {
+    height: 52px;
+    /* algo más grande que antes */
+    width: auto;
+    display: block;
+}
+
+
+
 
 .logo-text {
     font-size: 1.5rem;

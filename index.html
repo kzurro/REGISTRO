@@ -25,24 +25,44 @@
     <header class="main-header">
       <div class="logo-container">
         <div class="logo-box">
-          <a href="./"><img src="/assets/logo_isfas.png" style="max-width: 100%; height: auto" /></a>
+          <img src="/assets/logo_isfas.png" alt="ISFAS" class="logo-img" onclick="if (currentView !== 'login') navigateTo('inicio');" style="cursor: pointer" />
         </div>
         <div class="divider"></div>
         <div class="logo-box">
-          <a href="./"><img src="./assets/logo_ministerio.png" style="max-width: 25%; height: auto" /></a>
+          <img
+            src="./assets/logo_ministerio.png"
+            alt="Ministerio de Defensa"
+            class="logo-img"
+            onclick="if (currentView !== 'login') navigateTo('inicio');"
+            style="cursor: pointer"
+          />
         </div>
       </div>
-      <img src="./assets/REGISTR@SINfONDO.png" style="align-content: center; height: 40px; width: auto" alt="Registra" />
-      <!-- Datos de usuario: Ocultos inicialmente hasta el login -->
-      <div class="user-info" id="header-user-info" style="visibility: hidden">
+
+      <!-- Imagen centrada/más a la izquierda -->
+      <div style="margin: 0 16px">
+        <img src="./assets/REGISTR@SINfONDO.png" alt="Registro" style="height: 40px; width: auto; display: block" />
+      </div>
+
+      <!-- Bloque de usuario-->
+      <div class="user-info" id="header-user-info" style="visibility: hidden; display: flex; flex-direction: column; align-items: flex-end">
         <span id="header-username">Tramitador: Pelayo Español Español</span>
-        <!--<span class="delegation-badge">Registro ISFAS</span>-->
         <button
           type="button"
           onclick="navigateTo('login')"
-          style="margin-top: 4px; background: none; border: none; color: var(--color-warning); cursor: pointer; display: flex; align-items: center; gap: 4px"
+          style="
+            background: none;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.85rem;
+            margin-top: 2px;
+          "
         >
-          <span>🚪</span>
+          <span><img src="./assets/salidaSinfondo.png" style="width: 18px; height: 18px; object-fit: contain; flex-shrink: 0" /></span>
           <span>Cerrar sesión</span>
         </button>
       </div>
